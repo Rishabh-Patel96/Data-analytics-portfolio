@@ -12,13 +12,14 @@ SQL Functions Used:
 ===============================================================================
 */
 
--- Find total customers by countries
+-- Find total customers by country
 SELECT
     country,
     COUNT(customer_key) AS total_customers
 FROM gold.dim_customers
 GROUP BY country
 ORDER BY total_customers DESC;
+
 
 -- Find total customers by gender
 SELECT
@@ -28,6 +29,7 @@ FROM gold.dim_customers
 GROUP BY gender
 ORDER BY total_customers DESC;
 
+
 -- Find total products by category
 SELECT
     category,
@@ -36,13 +38,15 @@ FROM gold.dim_products
 GROUP BY category
 ORDER BY total_products DESC;
 
--- What is the average costs in each category?
+
+-- What is the average cost in each category?
 SELECT
     category,
     AVG(cost) AS avg_cost
 FROM gold.dim_products
 GROUP BY category
 ORDER BY avg_cost DESC;
+
 
 -- What is the total revenue generated for each category?
 SELECT
@@ -64,11 +68,12 @@ SELECT
 FROM gold.fact_sales f
 LEFT JOIN gold.dim_customers c
     ON c.customer_key = f.customer_key
-GROUP BY 
+GROUP BY
     c.customer_key,
     c.first_name,
     c.last_name
 ORDER BY total_revenue DESC;
+
 
 -- What is the distribution of sold items across countries?
 SELECT
