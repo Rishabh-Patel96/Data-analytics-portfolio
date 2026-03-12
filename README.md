@@ -1,33 +1,50 @@
 # Data Analytics Portfolio
 
-This repository contains my data analytics projects focused on **SQL-based analysis, business reporting & dashboarding, data exploration and analysis using python**.
+This repository contains my **Data Analytics project portfolio**, demonstrating end-to-end analytical workflows using multiple tools and technologies.
 
-The goal of this portfolio is to demonstrate practical analytical workflows used by data analysts to explore datasets, analyze metrics, and generate structured insights.
+The projects in this repository showcase practical data analysis techniques including **SQL data exploration, Python-based analysis, and Power BI dashboard development**.
+
+The goal of this portfolio is to demonstrate how raw data can be transformed into **structured insights, analytical reports, and business intelligence dashboards**.
 
 ---
 
-## 📂 Repository Structure
+# Repository Structure
 
 ```
 Data-analytics-portfolio
 │
-├── datasets
-├── docs
-├── sql-projects
-│   └── 01-sql-business-analysis
+├ datasets
+│   Raw datasets used for analysis
 │
-└── README.md
+├ docs
+│   Supporting documentation for projects
+│
+├ sql-projects
+│   SQL-based data analysis and case studies
+│
+├ Python projects
+│   Data analysis and automation projects using Python
+│
+├ PowerBI projects
+│   Business intelligence dashboards and data visualizations
+│
+├ scripts
+│   Utility or supporting scripts used during analysis
+│
+└ README.md
 ```
 
 ---
 
-## 📊 SQL Projects
+# Projects
 
-### 1️⃣ SQL Business Analysis
+## SQL Projects
 
-This project demonstrates a variety of SQL analytical techniques applied to a relational dataset.
+These projects demonstrate analytical workflows using **SQL for data exploration and business analysis**.
 
-Key analytical areas covered include:
+### SQL Business Analysis
+
+This project demonstrates a wide range of SQL analytical patterns including:
 
 * Database exploration
 * Dimension analysis
@@ -40,7 +57,7 @@ Key analytical areas covered include:
 * Customer reporting
 * Product reporting
 
-📍 Project location:
+Project location:
 
 ```
 sql-projects/01-sql-business-analysis
@@ -48,39 +65,80 @@ sql-projects/01-sql-business-analysis
 
 ---
 
-## 🧠 Skills Demonstrated
+## Python Projects
+
+These projects will demonstrate data analysis and automation using **Python and data science libraries** such as:
+
+* Pandas
+* NumPy
+* Matplotlib / Seaborn
+* Data cleaning and transformation
+* Exploratory data analysis
+* Analytical scripting
+
+Projects will focus on transforming datasets into structured analytical insights using Python.
+
+---
+
+## Power BI Projects
+
+These projects will demonstrate **business intelligence and dashboard development** using Power BI.
+
+Areas covered will include:
+
+* Interactive dashboards
+* Business KPI visualization
+* Data modeling
+* DAX measures
+* Business performance reporting
+
+These dashboards will translate analytical findings into **visual decision-making tools**.
+
+---
+
+# Skills Demonstrated
 
 Through the projects in this repository, I demonstrate skills in:
 
-* SQL data exploration
-* Analytical query development
-* KPI and metric analysis
+### Data Analysis
+
+* Data exploration
+* Analytical thinking
+* Business metric analysis
+* KPI development
 * Data segmentation
-* Ranking and cumulative analytics
-* Business reporting
-* Structured project documentation
+* Trend analysis
 
----
+### Technical Tools
 
-## 🛠 Tools Used
-
-* SQL (PostgreSQL)
-* Excel
-* Power BI
+* SQL
 * Python
+* Power BI
+* Excel
+
+### Data Analytics Techniques
+
+* Structured querying
+* Data transformation
+* Analytical reporting
+* Data visualization
+* Business intelligence development
 
 ---
 
-## 📌 Portfolio Purpose
+# Portfolio Purpose
 
-This repository serves as a **growing collection of analytics projects** that demonstrate practical data analysis techniques and problem-solving using SQL, BI tools & Python.
+This repository is a **growing collection of analytics projects** demonstrating how different tools can be used together in a modern analytics workflow.
 
-Additional projects and case studies will continue to be added as the portfolio expands.
+The portfolio will continue expanding with additional projects in:
+
+* SQL analytics
+* Python data analysis
+* Power BI dashboards
+* Real-world case studies
 
 ---
 
-## 📄 License
+# License
 
 This project is licensed under the MIT License.
-
-
