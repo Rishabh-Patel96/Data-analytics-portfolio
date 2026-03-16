@@ -4,29 +4,54 @@
 
 This project analyzes customer orders, runner deliveries, and pizza performance for **Pizza Runner** using SQL.
 
-The objective of this case study is to clean messy operational data, evaluate delivery activity, and generate business insights related to customer ordering patterns, runner performance, and pizza-level metrics.
+The main focus of this case study is to clean messy operational data and use it to answer high-value business questions related to order volume, successful deliveries, customer ordering behavior, and early runner performance metrics.
 
-This project demonstrates practical SQL skills used in data cleaning, operational analysis, and business intelligence workflows.
+The project emphasizes practical SQL skills such as data cleaning, reusable view creation, business-rule filtering, aggregation, joins, and time-based analysis.
 
 ---
 
 ## Problem Statement
 
-Danny launched **Pizza Runner**, a pizza delivery business where customer orders are placed through an app and delivered by runners.
+Danny launched **Pizza Runner**, a pizza delivery business where customers place pizza orders through an app and runners handle deliveries.
 
-As the business started generating data, Danny wanted to use it to better understand customer demand, delivery success, runner activity, and pizza customization patterns.
+As the business started generating data, Danny wanted to better understand customer demand, delivery outcomes, pizza performance, and runner activity. However, the raw operational data contains inconsistent text values, blank fields, and mixed formatting in important columns such as exclusions, extras, pickup time, distance, duration, and cancellation status.
 
-However, some of the raw data contains inconsistencies and missing values, so the first step is to clean and standardize the datasets before performing analysis.
+To support reliable analysis, the data first needed to be cleaned and standardized before calculating business metrics.
 
-This case study focuses on helping Danny answer key operational and customer-related questions using SQL.
+This project focuses on building that cleaned analytical layer and using it to answer selected operational questions from the case study.
 
 ---
 
-## Business Questions
+## Project Focus
 
-The analysis answers the following questions:
+This case study centers on two main goals:
+
+### 1. Building clean analytical views
+Reusable SQL views were created to standardize the raw order and runner data before analysis.
+
+### 2. Answering key operational business questions
+The analysis focuses on core Pizza Metrics questions and selected Runner & Customer Experience questions that are especially useful for interview preparation and portfolio presentation.
+
+---
+
+## Business Questions Covered
+
+### Data Exploration
+- reviewed all source tables:
+  - `runners`
+  - `customer_orders`
+  - `runner_orders`
+  - `pizza_names`
+  - `pizza_recipes`
+  - `pizza_toppings`
+
+### Data Cleaning
+- created `clean_customer_orders` view
+- created `clean_runner_orders` view
 
 ### A. Pizza Metrics
+The following questions were solved:
+
 1. How many pizzas were ordered?
 2. How many unique customer orders were made?
 3. How many successful orders were delivered by each runner?
@@ -39,44 +64,13 @@ The analysis answers the following questions:
 10. What was the volume of orders for each day of the week?
 
 ### B. Runner and Customer Experience
+The following questions were solved:
+
 1. How many runners signed up for each 1 week period? (week starts 2021-01-01)
 2. What was the average time in minutes it took for each runner to arrive at Pizza Runner HQ to pick up the order?
-3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
-4. What was the average distance travelled for each customer?
-5. What was the difference between the longest and shortest delivery times for all orders?
-6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
-7. What is the successful delivery percentage for each runner?
 
-### C. Ingredient Optimisation
-1. What are the standard ingredients for each pizza?
-2. What was the most commonly added extra?
-3. What was the most common exclusion?
-4. Generate an order item for each record in the `customer_orders` table in the format:
-   - `Meat Lovers`
-   - `Meat Lovers - Exclude Beef`
-   - `Meat Lovers - Extra Bacon`
-   - `Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers`
-5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the `customer_orders` table and add a `2x` in front of any relevant ingredients.
-   - For example: `Meat Lovers: 2xBacon, Beef, ...`
-6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
-
-### D. Pricing and Ratings
-1. If a Meat Lovers pizza costs \$12 and Vegetarian costs \$10 and there were no delivery fees, how much money has Pizza Runner made so far if there are no extras?
-2. What if there was an additional \$1 charge for any pizza extras?
-   - Add cheese is \$1 extra
-3. The Pizza Runner team now wants to add an additional ratings table so that customers can rate their runner. Generate a schema and insert data for this new table.
-4. Using your new table, calculate:
-   - customer ID
-   - order ID
-   - runner ID
-   - rating
-   - order time
-   - pickup time
-   - time between order and pickup
-   - delivery duration
-   - average speed
-   - total number of pizzas
-5. If a Meat Lovers pizza was \$12 and Vegetarian \$10, and there was a \$0.30 per kilometre payment to runners, how much money does Pizza Runner have left over after these deliveries?
+### Additional Areas in the Original Case Study
+The full Pizza Runner challenge also includes additional runner analysis, ingredient optimization, pricing, and ratings-related questions. This project is intentionally centered on the core operational analysis and cleaned data foundation represented in the current SQL scripts.
 
 ---
 
@@ -84,8 +78,8 @@ The analysis answers the following questions:
 
 The project uses six tables from the `pizza_runner` schema:
 
-- **customer_orders** – customer-level pizza orders including exclusions and extras
-- **runner_orders** – runner delivery information including pickup time, distance, duration, and cancellation status
+- **customer_orders** – customer pizza order records, including exclusions and extras
+- **runner_orders** – runner delivery information, including pickup time, distance, duration, and cancellation status
 - **runners** – runner registration details
 - **pizza_names** – mapping of pizza IDs to pizza names
 - **pizza_recipes** – standard toppings assigned to each pizza
@@ -93,19 +87,71 @@ The project uses six tables from the `pizza_runner` schema:
 
 ---
 
+## Data Cleaning Approach
+
+Before solving the business questions, the raw source tables were cleaned and standardized using SQL views.
+
+### `clean_customer_orders`
+This view standardizes the `exclusions` and `extras` columns by:
+
+- trimming whitespace
+- converting text-based `'null'` values into actual `NULL`
+- converting blank strings into actual `NULL`
+
+### `clean_runner_orders`
+This view standardizes delivery-related columns by:
+
+- converting text-based `'null'` values into actual `NULL`
+- casting `pickup_time` into `TIMESTAMP`
+- removing `'km'` from `distance` and converting it to numeric
+- extracting numeric values from `duration` and storing them as minutes
+- standardizing `cancellation` values
+
+These cleaning views make the downstream analysis simpler, more reusable, and more reliable.
+
+---
+
 ## SQL Techniques Used
 
 This project demonstrates:
 
-- Data cleaning using `NULLIF`, `CASE`, and casting
-- Handling inconsistent text values such as `'null'`, blank strings, and missing values
-- Aggregations (`COUNT`, `SUM`, `AVG`)
+- data cleaning using `NULLIF`, `TRIM`, `REPLACE`, `CASE`, and casting
+- handling inconsistent text values such as `'null'`, blank strings, and mixed formatting
+- creating reusable SQL views
+- joins between transactional and lookup tables
+- aggregations using `COUNT` and `AVG`
 - `GROUP BY` analysis
-- Joins between relational tables
-- Date and time analysis
-- Conditional logic
-- String parsing and transformation
-- Creating clean views for reusable analysis
-- Business metric calculation for operational reporting
+- filtering successful deliveries using cancellation logic
+- date and time analysis using `EXTRACT`
+- timestamp difference calculation
+- numeric parsing using `REGEXP_REPLACE`
+- careful handling of order-level vs pizza-level grain
 
 ---
+
+## Key Learning Outcomes
+
+This project strengthened practical SQL skills in:
+
+- cleaning messy operational data before analysis
+- converting string-based fields into analysis-ready formats
+- defining successful delivery logic clearly
+- working with the correct table grain while joining datasets
+- avoiding counting errors when moving between order-level and pizza-level questions
+- calculating time-based metrics from order and pickup timestamps
+- writing SQL that is both interview-relevant and easy to explain
+
+---
+
+## Portfolio Context
+
+This project is part of my broader **8 Week SQL Challenge** portfolio.
+
+Within that portfolio, Pizza Runner serves as a strong operational SQL case study focused on:
+
+- messy data cleaning
+- delivery logic
+- pizza-level and order-level metrics
+- customer and runner performance analysis
+
+It complements the other case studies by showcasing SQL work on more realistic operational data rather than only clean transactional data.
