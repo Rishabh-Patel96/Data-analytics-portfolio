@@ -4,7 +4,7 @@
 
 This project analyzes customer orders, runner deliveries, and pizza performance for **Pizza Runner** using SQL.
 
-The main focus of this case study is to clean messy operational data and use it to answer high-value business questions related to order volume, successful deliveries, customer ordering behavior, and early runner performance metrics.
+The main focus of this case study is to clean messy operational data and use it to answer high-value business questions related to order volume, successful deliveries, customer ordering behavior, and runner performance.
 
 The project emphasizes practical SQL skills such as data cleaning, reusable view creation, business-rule filtering, aggregation, joins, and time-based analysis.
 
@@ -22,55 +22,20 @@ This project focuses on building that cleaned analytical layer and using it to a
 
 ---
 
-## Project Focus
+## Analysis Scope
 
-This case study centers on two main goals:
+This case study focuses on the most relevant operational parts of the Pizza Runner dataset, with emphasis on:
 
-### 1. Building clean analytical views
-Reusable SQL views were created to standardize the raw order and runner data before analysis.
+- exploring the source tables and understanding their structure
+- cleaning and standardizing messy order and delivery data
+- building reusable SQL views for downstream analysis
+- analyzing pizza order volume and customer order behavior
+- evaluating delivery outcomes and runner activity
+- working with time-based operational metrics such as pickup timing and order patterns
+- handling customization fields such as exclusions and extras
+- applying correct order-level and pizza-level logic during analysis
 
-### 2. Answering key operational business questions
-The analysis focuses on core Pizza Metrics questions and selected Runner & Customer Experience questions that are especially useful for interview preparation and portfolio presentation.
-
----
-
-## Business Questions Covered
-
-### Data Exploration
-- reviewed all source tables:
-  - `runners`
-  - `customer_orders`
-  - `runner_orders`
-  - `pizza_names`
-  - `pizza_recipes`
-  - `pizza_toppings`
-
-### Data Cleaning
-- created `clean_customer_orders` view
-- created `clean_runner_orders` view
-
-### A. Pizza Metrics
-The following questions were solved:
-
-1. How many pizzas were ordered?
-2. How many unique customer orders were made?
-3. How many successful orders were delivered by each runner?
-4. How many of each type of pizza was delivered?
-5. How many Vegetarian and Meatlovers were ordered by each customer?
-6. What was the maximum number of pizzas delivered in a single order?
-7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
-8. How many pizzas were delivered that had both exclusions and extras?
-9. What was the total volume of pizzas ordered for each hour of the day?
-10. What was the volume of orders for each day of the week?
-
-### B. Runner and Customer Experience
-The following questions were solved:
-
-1. How many runners signed up for each 1 week period? (week starts 2021-01-01)
-2. What was the average time in minutes it took for each runner to arrive at Pizza Runner HQ to pick up the order?
-
-### Additional Areas in the Original Case Study
-The full Pizza Runner challenge also includes additional runner analysis, ingredient optimization, pricing, and ratings-related questions. This project is intentionally centered on the core operational analysis and cleaned data foundation represented in the current SQL scripts.
+The original Pizza Runner challenge also includes additional advanced sections such as ingredient optimization, pricing, and ratings extensions. This project is centered on the core operational analysis and cleaned data foundation represented in the current SQL scripts.
 
 ---
 
@@ -115,7 +80,7 @@ These cleaning views make the downstream analysis simpler, more reusable, and mo
 
 This project demonstrates:
 
-- data cleaning using `NULLIF`, `TRIM`, `REPLACE`, `CASE`, and casting
+- data cleaning using `NULLIF`, `TRIM`, `REPLACE`, and casting
 - handling inconsistent text values such as `'null'`, blank strings, and mixed formatting
 - creating reusable SQL views
 - joins between transactional and lookup tables
