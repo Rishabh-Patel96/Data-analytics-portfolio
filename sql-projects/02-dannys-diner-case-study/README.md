@@ -56,4 +56,10 @@ This project demonstrates:
 
 ---
 
+## 📈 Business Recommendations
+
+* Promote the most popular menu items to increase overall sales.
+* Introduce targeted loyalty rewards for frequent customers to increase repeat visits.
+* Use customer purchase history to personalize offers and improve customer experience.
+* Identify high-spending customers and provide exclusive benefits to strengthen retention.
 

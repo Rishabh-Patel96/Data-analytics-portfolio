@@ -126,3 +126,11 @@ Within that portfolio, Foodie-Fi represents a complete end-to-end SQL case study
 - time-based business insights
 
 It builds on previous case studies by moving from transactional and operational analysis to more advanced customer lifecycle and retention-focused analytics.
+
+## 📈 Business Recommendations
+
+* Improve trial-to-paid conversion through targeted onboarding strategies.
+* Identify early churn signals and implement retention campaigns.
+* Optimize pricing and plan offerings based on customer transition patterns.
+* Encourage annual subscriptions to improve long-term revenue stability.
+* Track customer lifecycle stages to design personalized engagement strategies.

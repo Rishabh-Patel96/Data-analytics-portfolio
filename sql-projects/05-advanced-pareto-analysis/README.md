@@ -112,6 +112,15 @@ The entire Pareto analysis was performed using SQL on a cloud data warehouse, de
 
 ---
 
+## 📈 Business Recommendations
+
+* Focus retention and engagement strategies on top contributing customers to maximize revenue impact.
+* Develop targeted marketing campaigns for high-value customer segments.
+* Reduce dependency on a small group of customers by expanding the mid-tier customer base.
+* Use Pareto-based segmentation to optimize pricing, promotions, and customer experience.
+* Continuously monitor customer contribution trends to detect shifts in revenue distribution.
+
+
 ## 📂 Project Structure
 
 * `dataset/` → Raw CSV data
